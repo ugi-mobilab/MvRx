@@ -90,7 +90,7 @@ abstract class BaseMvRxViewModel<S : MvRxState>(
      * 3) In development, MvRx will do checks to make sure that your setState is pure by calling in multiple times. As a result, DO NOT use
      *    mutable variables or properties from outside the lambda or else it may crash.
      */
-    protected fun setState(reducer: S.() -> S) {
+    open protected fun setState(reducer: S.() -> S) {
         if (debugMode) {
             // Must use `set` to ensure the validated state is the same as the actual state used in reducer
             // Do not use `get` since `getState` queue has lower priority and the validated state would be the state after reduced
